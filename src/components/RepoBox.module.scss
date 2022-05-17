@@ -22,6 +22,10 @@
     .repoDesc,
     .repoCreator {
       @include standardRepoBoxFont;
+      width: 305px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .repoData {
       @include flexRowCenter;
@@ -30,6 +34,7 @@
       margin: 20px 0;
       > p {
         @include standardRepoBoxFont;
+
         > span > img {
           position: relative;
           top: 2px;

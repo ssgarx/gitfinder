@@ -5,7 +5,7 @@
 .resultBoxBox1 {
   border-radius: $themeBorderRadius;
   padding: 10px 15px;
-  background-color: $themeElevation1;
+  background-color: $themeElevation1 !important;
   max-height: 70vh;
   /* overflow: scroll; */
   /* overflow-x: scroll; */

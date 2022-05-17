@@ -2,19 +2,35 @@ import React from "react";
 import styles from "./SearchBox.module.scss";
 import searchIcon from "../assets/icons/searchIcon.svg";
 import closeIcon from "../assets/icons/closeIcon.svg";
+import filterIcon from "../assets/icons/filterIcon.svg";
 
-function SearchBox({ searchedText, setSearchedText }) {
+function SearchBox({
+  searchedText,
+  setSearchedText,
+  setResults,
+  setPage,
+  location,
+  setLocalResults,
+}) {
   return (
     <div className={styles.searchBoxBox1}>
       <div>
-        <img src={searchIcon} alt="searchIcon" />
+        {location === "home" ? (
+          <img src={searchIcon} alt="searchIcon" />
+        ) : (
+          <img src={filterIcon} alt="filterIcon" />
+        )}
       </div>
       <div>
         <input
           autoFocus={true}
           autoComplete="off"
           type="text"
-          placeholder="search here for any repo..."
+          placeholder={
+            location === "home"
+              ? "search here for any repo..."
+              : "searcg here for saved repo..."
+          }
           value={searchedText}
           onChange={(e) => setSearchedText(e.target.value)}
         />
@@ -24,7 +40,15 @@ function SearchBox({ searchedText, setSearchedText }) {
           <img
             src={closeIcon}
             alt="closeIcon"
-            onClick={() => setSearchedText("")}
+            onClick={() => {
+              setSearchedText("");
+              if (location === "home") {
+                setPage(1);
+                setResults([]);
+              } else {
+                setLocalResults([]);
+              }
+            }}
           />
         )}
       </div>

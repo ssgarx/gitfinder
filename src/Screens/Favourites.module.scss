@@ -1,0 +1,65 @@
+@import "../partials.scss";
+.favouritesBox * {
+  background-color: transparent;
+  transition: 0.2s;
+}
+.favouritesBox {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  @include flexRowCenter;
+  .fContent {
+    @include flexColumnCenter;
+    width: 50%;
+    gap: 20px;
+    > div {
+      width: 100%;
+    }
+    .fUpper {
+      @include flexRowCenter;
+      justify-content: space-between;
+      .fUpperLeft {
+        > p {
+          font-style: normal;
+          font-weight: 800;
+          font-size: 20px;
+          line-height: 24px;
+          color: rgba(255, 255, 255, 0.29);
+        }
+      }
+      .fUpperRight {
+        @include flexRowCenter;
+        > div {
+          padding: 10px 30px;
+          background-color: $themeElevation1;
+          cursor: pointer;
+          &:hover {
+            background-color: $themeElevation2;
+          }
+        }
+        > div:first-child {
+          border-radius: $themeBorderRadius 0 0 $themeBorderRadius;
+          > p {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+            color: $themeText1;
+          }
+        }
+        > div:last-child {
+          border-radius: 0 $themeBorderRadius $themeBorderRadius 0;
+          > p {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+            color: $themeText1;
+          }
+        }
+      }
+    }
+    .fLower {
+    }
+  }
+}
