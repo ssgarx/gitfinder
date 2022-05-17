@@ -1,0 +1,29 @@
+$themeBackground: #141c2f;
+$themeElevation1: #1f2a48;
+$themeElevation2: #2f3f69;
+$themeText1: #d3d3d3;
+$themeBoldText1: #0079ff;
+$themeBorderRadius: 15px;
+
+@mixin flexRowCenter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@mixin flexColumnCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+@mixin standardRepoBoxFont {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+  color: $themeText1;
+}

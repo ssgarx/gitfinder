@@ -1,0 +1,51 @@
+@import "../partials.scss";
+.repoBoxBox1 * {
+  background-color: transparent;
+}
+
+.repoBoxBox1 {
+  margin: 10px 0;
+  @include flexRowCenter;
+  background-color: $themeBackground !important;
+  border-radius: $themeBorderRadius;
+
+  cursor: pointer;
+  padding: 20px 30px;
+  .rbbLeft {
+    flex: 5;
+    .repoName {
+      font-weight: 800;
+      font-size: 25px;
+      line-height: 30px;
+      color: $themeBoldText1;
+    }
+    .repoDesc,
+    .repoCreator {
+      @include standardRepoBoxFont;
+    }
+    .repoData {
+      @include flexRowCenter;
+      justify-content: flex-start;
+      gap: 30px;
+      margin: 20px 0;
+      > p {
+        @include standardRepoBoxFont;
+        > span > img {
+          position: relative;
+          top: 2px;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  .rbbRight {
+    flex: 1;
+    @include flexRowCenter;
+    > img {
+      width: 30%;
+      height: 30%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+  }
+}
