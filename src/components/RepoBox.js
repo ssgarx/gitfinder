@@ -1,19 +1,26 @@
 import React from "react";
-import styles from "./RepoBox.module.scss";
+import { useSelector, useDispatch } from "react-redux";
+import { saveFavourites } from "../redux/favouriteSlice";
+
 import saveIconUnselected from "../assets/icons/saveIconUnselected.svg";
 import saveIconSelected from "../assets/icons/saveIconSelected.svg";
 import lockIcon from "../assets/icons/lockIcon.svg";
 import unlockIcon from "../assets/icons/unlockIcon.svg";
 import starIcon from "../assets/icons/starIcon.svg";
 import languageIcon from "../assets/icons/languageIcon.svg";
-import { useSelector, useDispatch } from "react-redux";
-import { saveFavourites } from "../redux/favouriteSlice";
+
+import styles from "./RepoBox.module.scss";
 
 function RepoBox({ repo }) {
   const favs = useSelector((state) => state.favourites.value);
   const dispatch = useDispatch();
   const handleRepoClick = (url) => {
     window.open(url, "_blank").focus();
+  };
+
+  const returnLastUpdated = (input) => {
+    let myArr = input.split("T")[0].split("-");
+    return `${myArr[2]}/${myArr[1]}/${myArr[0]}`;
   };
   return (
     <div className={styles.repoBoxBox1}>
@@ -53,7 +60,7 @@ function RepoBox({ repo }) {
               {repo.language}
             </p>
           )}
-          <p> {repo?.updated_at}</p>
+          <p> Updated on {returnLastUpdated(repo?.updated_at)}</p>
         </div>
         <p className={styles.repoCreator}>Created by {repo?.owner?.login}</p>
       </div>

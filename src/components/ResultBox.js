@@ -1,9 +1,11 @@
 import React from "react";
 import { useRef } from "react";
+
 import RepoBox from "./RepoBox";
+
 import styles from "./ResultBox.module.scss";
 
-function ResultBox({ results, setPage, localResults, location }) {
+function ResultBox({ results, setPage }) {
   const listInnerRef = useRef();
 
   const onScroll = async () => {
@@ -17,20 +19,11 @@ function ResultBox({ results, setPage, localResults, location }) {
 
   return (
     <div
-      onScroll={() => {
-        if (location === "home") {
-          console.log("location", location);
-          onScroll();
-        }
-      }}
+      onScroll={onScroll}
       ref={listInnerRef}
       className={styles.resultBoxBox1}
     >
-      {(location = "favourites"
-        ? localResults?.length > 0
-          ? localResults
-          : results
-        : results).map((repo, index) => {
+      {results.map((repo, index) => {
         return <RepoBox repo={repo} key={index} />;
       })}
     </div>

@@ -12,6 +12,18 @@
     @include flexColumnCenter;
     width: 50%;
     gap: 20px;
+    @media screen and (max-width: 1400px) {
+      width: 60%;
+    }
+    @media screen and (max-width: 1150px) {
+      width: 70%;
+    }
+    @media screen and (max-width: 1100px) {
+      width: 90%;
+    }
+    @media screen and (max-width: 800px) {
+      width: 95%;
+    }
     > div {
       width: 100%;
     }
@@ -60,6 +72,40 @@
       }
     }
     .fLower {
+      @include flexRowCenter;
+      gap: 5px;
+      > div:nth-child(1) {
+        flex: 6;
+      }
+      > div:nth-child(2) {
+        padding: 17px;
+        box-sizing: content-box;
+        background-color: $themeElevation1 !important;
+        border-radius: $themeBorderRadius;
+        cursor: pointer;
+        @include flexRowCenter;
+      }
+      > div:nth-child(3) {
+        padding: 17px;
+        box-sizing: content-box;
+        background-color: $themeElevation1 !important;
+        border-radius: $themeBorderRadius;
+        cursor: pointer;
+        @include flexRowCenter;
+      }
+      .icon {
+        height: 26.5px;
+        width: 26.5px;
+        object-fit: contain;
+        margin-right: 10px;
+      }
+      .iconText {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #d3d3d3;
+      }
     }
   }
 }

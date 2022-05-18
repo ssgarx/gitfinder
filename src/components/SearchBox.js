@@ -1,8 +1,10 @@
 import React from "react";
-import styles from "./SearchBox.module.scss";
+
 import searchIcon from "../assets/icons/searchIcon.svg";
 import closeIcon from "../assets/icons/closeIcon.svg";
 import filterIcon from "../assets/icons/filterIcon.svg";
+
+import styles from "./SearchBox.module.scss";
 
 function SearchBox({
   searchedText,

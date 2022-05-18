@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import styles from "./Home.module.scss";
+import { useNavigate } from "react-router-dom";
+
 import SearchBox from "../components/SearchBox";
 import LineLoader from "../components/LineLoader";
 import ResultBox from "../components/ResultBox";
-import { useNavigate } from "react-router-dom";
+
+import styles from "./Home.module.scss";
 
 function Home() {
   const navigate = useNavigate();
@@ -15,7 +17,6 @@ function Home() {
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
       searchedText && handleSearch(searchedText);
-      // Send Axios request here
     }, 500);
     searchedText.length === 0 && setResults([]) && setPage(1);
     return () => clearTimeout(delayDebounceFn);
